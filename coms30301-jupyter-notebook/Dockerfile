@@ -8,9 +8,10 @@ RUN apt-get update && \
     wget
 
 USER $NB_USER
+
+# R Packages
 RUN conda install --quiet --yes \
-    'r-rjava' \
-    'scikit-learn'
+    'r-rjava'
 
 # By default R fails to find jni.h so we specify the include directory
 # manually
@@ -27,3 +28,9 @@ RUN R -f /tmp/party.R
 
 COPY weka.R /tmp
 RUN R -f /tmp/weka.R
+
+# Python packages
+RUN conda install --quiet --yes \
+    'scikit-learn' \
+    'pandas' \
+    'numpy' \
