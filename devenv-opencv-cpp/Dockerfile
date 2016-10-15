@@ -69,7 +69,8 @@ RUN mkdir build && \
 
 # Dev tools
 RUN apt-get update && \
-    apt-get install -y gvim
+    apt-get install -y vim-gtk3 && \
+    rm -rf /var/cache/apt
 
 RUN mkdir /src
 WORKDIR /src
