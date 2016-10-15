@@ -6,7 +6,8 @@ ARG OPENCV_VERSION="3.1.0"
 
 # Docker file deps
 RUN apt-get update && \
-    apt-get install -y wget sudo unzip
+    apt-get install -y wget sudo unzip && \
+    rm -rf /var/cache/apt
 
 # OpenCV dependencies
 RUN apt-get update && \
@@ -42,7 +43,9 @@ RUN apt-get update && \
                        ffmpeg \
                        cmake \
                        qt5-default \
-                       checkinstall
+                       checkinstall \
+    && \
+    rm -rf /var/cache/apt
 
 # Download OpenCV
 WORKDIR "/tmp"
