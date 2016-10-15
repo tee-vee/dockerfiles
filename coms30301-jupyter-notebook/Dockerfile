@@ -34,3 +34,4 @@ RUN conda install --quiet --yes \
     'scikit-learn' \
     'pandas' \
     'numpy' \
+    'matplotlib'
